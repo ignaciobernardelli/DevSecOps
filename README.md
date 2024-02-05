@@ -9,20 +9,20 @@ Se creó una service account en GCP la cual se utilizara para desplegar los serv
 Dependiendo el origen y como son entregados los datos se puede ajustar mejor como realizar la ingesta de los mismos.
 Las opciones de entrega de datos y el servicio utilizado podrian ser las siguientes:
 
-- ##### Streaming:
+* **Streaming:**
 
 En la ingesta de datos por streaming, los datos se envían continuamente a medida que son generados, permitiendo un procesamiento en tiempo real.
 Este enfoque es ideal para casos en los que se requiere análisis inmediato o reacción en tiempo real a los eventos.
 ###### Servicios de GCP:
 Cloud Pub/Sub: Utiliza Google Cloud Pub/Sub para establecer un flujo de datos en tiempo real. Los productores envían mensajes a un tema, y los consumidores los reciben en suscripciones. Puedes utilizar Cloud Dataflow para procesar estos mensajes en tiempo real.
 
-- ##### Publicación y Suscripción:
+* **Publicación y Suscripción:**
 La publicación y suscripción es un modelo de envío de mensajes en el que los productores publican mensajes en un "tema", y los consumidores se suscriben a esos temas para recibir los mensajes. Este enfoque es eficaz para manejar eventos o mensajes de manera asíncrona.
 
 ###### Servicios de GCP:
 Cloud Pub/Sub: Utiliza Cloud Pub/Sub para implementar el modelo de publicación y suscripción. Los productores publican mensajes en temas, y los consumidores se suscriben a esos temas para recibir los mensajes.
 
-- ##### Eventos (por ejemplo, cuando se sube un archivo a un bucket):
+* **Eventos (por ejemplo, cuando se sube un archivo a un bucket):**
 En este enfoque, la ingesta de datos se desencadena por eventos específicos, como la creación o modificación de archivos en un bucket de Cloud Storage. Es útil cuando los datos se generan como archivos y se almacenan en un sistema de almacenamiento.
 
 ###### Servicios de GCP:
@@ -71,9 +71,9 @@ En el proceso de implementación de pruebas de integración en nuestro flujo de 
 
 Queremos asegurar el funcionamiento óptimo del sistema, por eso se necesitan pruebas adicionales de integración más allá de las mencionadas anteriormente. Estas pruebas se podrian centran en dos aspectos cruciales: rendimiento y seguridad.
 
-Para evaluar el rendimiento del sistema, nos apoyaremos en Cloud Monitoring, una herramienta poderosa que nos permitirá medir y analizar la eficiencia de la API en condiciones de carga variable. Adicionalmente, implementar pruebas de carga simulando situaciones de alto tráfico nos proporciona una evaluación completa de la capacidad de respuesta del sistema ante demandas exigentes.
+Para evaluar el rendimiento del sistema, nos apoyaremos en **Cloud Monitoring**, una herramienta poderosa que nos permitirá medir y analizar la eficiencia de la API en condiciones de carga variable. Adicionalmente, implementar pruebas de carga simulando situaciones de alto tráfico nos proporciona una evaluación completa de la capacidad de respuesta del sistema ante demandas exigentes.
 
-En cuanto a seguridad de acuerdo a informacion encontrada se puede utilizar Cloud Security Scanner para llevar a cabo búsquedas exhaustivas de posibles vulnerabilidades en el sistema. Además, desplegar pruebas de seguridad en las capas de la API y la base de datos, asegurando así la proteccion de datos sensibles. Estas medidas combinadas fortalecerán la integridad y la resistencia del sistema ante desafíos tanto de rendimiento como de seguridad.
+En cuanto a seguridad de acuerdo a informacion encontrada se puede utilizar **Cloud Security Scanner** para llevar a cabo búsquedas exhaustivas de posibles vulnerabilidades en el sistema. Además, desplegar pruebas de seguridad en las capas de la API y la base de datos, asegurando así la proteccion de datos sensibles. Estas medidas combinadas fortalecerán la integridad y la resistencia del sistema ante desafíos tanto de rendimiento como de seguridad.
 
 #### 3. Identificar posibles puntos críticos del sistema (a nivel de fallo o performance) diferentes al punto anterior y proponer formas de testearlos o medirlos (no implementar)
 
@@ -91,9 +91,9 @@ En base a documentacion encontrda en Google para mejorar la robustez del sistema
 
 Escalabilidad Automática con GKE: Utilizar GKE para orquestacion de contenedores, permitiendo una escalabilidad automática según la demanda.
 
-Caché de Datos con Cloud Memorystore: Implementaremos un sistema de caché para almacenar datos frecuentemente accedidos, reduciendo así la carga en la base de datos y mejorando los tiempos de respuesta.
+* Caché de Datos con Cloud Memorystore: Implementaremos un sistema de caché para almacenar datos frecuentemente accedidos, reduciendo así la carga en la base de datos y mejorando los tiempos de respuesta.
 
-Monitoreo Continuo con Cloud Monitoring: Configurar alertas para recibir notificaciones proactivas sobre cualquier anomalía en el rendimiento o el uso de recursos, permitiendo una intervención rápida.
+* Monitoreo Continuo con Cloud Monitoring: Configurar alertas para recibir notificaciones proactivas sobre cualquier anomalía en el rendimiento o el uso de recursos, permitiendo una intervención rápida.
 
 Estas propuestas combinadas fortalecerán la calidad y la resistencia del sistema, asegurando un rendimiento óptimo incluso en condiciones desafiantes y proporcionando una experiencia de usuario excepcional.
 
@@ -102,9 +102,9 @@ Estas propuestas combinadas fortalecerán la calidad y la resistencia del sistem
 
 Además de las métricas básicas podriamos enfocarnos en:
 
-Latencia del Sistema: Mide el tiempo que tarda el sistema en responder a una solicitud, siendo crucial para evaluar la experiencia del usuario.
-Tasa de Errores: Evalúa la frecuencia de errores en las operaciones, permitiendo identificar posibles problemas en la lógica de la aplicación.
-Recuento de Solicitudes por Segundo: Proporciona una visión general de la carga del sistema y ayuda a anticipar picos de demanda.
+* Latencia del Sistema: Mide el tiempo que tarda el sistema en responder a una solicitud, siendo crucial para evaluar la experiencia del usuario.
+* Tasa de Errores: Evalúa la frecuencia de errores en las operaciones, permitiendo identificar posibles problemas en la lógica de la aplicación.
+* Recuento de Solicitudes por Segundo: Proporciona una visión general de la carga del sistema y ayuda a anticipar picos de demanda.
 
 #### 2. Proponer una herramienta de visualización y describe textualmente qué métricas mostraría, y cómo esta información nos permitiría entender la salud del sistema para
 tomar decisiones estratégicas
@@ -131,9 +131,9 @@ Sin abordar adecuadamente la escalabilidad, podríamos enfrentar desafíos en la
 Reglas y Umbrales para Alertas de Performance:
 Para las métricas propuestas:
 
-Latencia del Sistema: Estableceríamos un umbral para alertas en caso de que la latencia supere un tiempo específico, indicando posibles problemas de rendimiento.
+**Latencia del Sistema:** Estableceríamos un umbral para alertas en caso de que la latencia supere un tiempo específico, indicando posibles problemas de rendimiento.
 Tasa de Errores: Configuraríamos alertas al superar un porcentaje definido de errores en las operaciones, señalando posibles fallos en la lógica del sistema.
-Recuento de Solicitudes por Segundo: Establecer alertas en caso de picos inesperados que podrían indicar una carga anormal.
+**Recuento de Solicitudes por Segundo:** Establecer alertas en caso de picos inesperados que podrían indicar una carga anormal.
 
 Estos umbrales se basan en un equilibrio entre mantener un rendimiento óptimo y detectar problemas antes de que afecten la experiencia del usuario. Alertar al equipo cuando se exceden estos umbrales permite una respuesta proactiva, mitigando posibles impactos negativos en la calidad del servicio.
 
